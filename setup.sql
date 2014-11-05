@@ -3,6 +3,6 @@ CREATE TABLE users (
     username VARCHAR(30) NOT NULL UNIQUE,
     password VARCHAR(64) NOT NULL,
     salt VARCHAR(3) NOT NULL,
-    email VARCHAR(32) NOT NULL,
+    email VARCHAR(32) NOT NULL UNIQUE,
     PRIMARY KEY(uid)
 );

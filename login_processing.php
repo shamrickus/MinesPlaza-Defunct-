@@ -1,27 +1,26 @@
 <?php
 require('variables.php');
-echo 'asdf';
 session_start();
-echo 'pfft';
 $username = $_POST['username'];
 $password = $_POST['password'];
-$mysqli->$query = ("SELECT password, salt
+//NEED TO DO SANITIZATION BEFORE DOING DB STUFF
+$result = $mysqli->query('SELECT password, salt, uid
         FROM users
-        WHERE username = '$username'");
+        WHERE username = "'.$username.'"');
 if ($row = $result->fetch_assoc())
 {
-	echo 'here';
-	$hash = hash('sha256', $row['salt'] . hash('sha256', $password) );
+	$hash = hash('sha256', $row['salt'].hash('sha256', $password));
 	if($hash != $row['password']){
-		echo 'plz';
-    	header('Location: login.php');
+    	header('Location: login.php?msg=Wrong Password');
     	die();
 	}
-	else validateUser();
+	else{
+		validateUser($row['uid']);
+		print_r('here');
+		header('Location: test.php');
+	}
 }else{
-	echo 'die';
-	header('Location: login.php');
+	header('Location: login.php?msg=No User With That Name');
 	die();
 }
-header('Location: test.php'):
 ?>
