@@ -1,5 +1,5 @@
 <?php
-require 'variables.php';
+require '../includes/variables.php';
 $username = $_POST['username'];
 $pass1 = $_POST['pass1'];
 $pass2 = $_POST['pass2'];
@@ -10,6 +10,8 @@ $msg = '';
 if(strcmp($pass1, $pass2) != 0)$msg = 'Passwords do not match';
 if(strlen($username) > 30) $msg = 'Username is too long';
 if(strlen($email) > 32) $msg= 'Email is too long';
+
+$mysqli = CreateDBObject();
 
 $query = 'SELECT * FROM users WHERE username = "'.$username.'"';
 $result = $mysqli->query($query);
@@ -32,6 +34,9 @@ else{
 		$stmt->close();
 		header('Location: login.php?msg=Created User');
 	}
+    else{
+        header('Location: login.php?msg=Cannot Insert Into DB');
+    }
 }
 
 

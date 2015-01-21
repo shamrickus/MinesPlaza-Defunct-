@@ -1,5 +1,5 @@
 <?php
-require 'variables.php';
+require '../includes/variables.php';
 session_start();
 if(!isLoggedIn())
 {

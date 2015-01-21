@@ -1,8 +1,9 @@
 <?php
-require('variables.php');
+require('../includes/variables.php');
 session_start();
 $username = $_POST['username'];
 $password = $_POST['password'];
+$mysqli = CreateDBObject();
 //NEED TO DO SANITIZATION BEFORE DOING DB STUFF
 $result = $mysqli->query('SELECT password, salt, uid
         FROM users

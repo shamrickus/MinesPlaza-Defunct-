@@ -18,5 +18,10 @@ function logout(){
     Header('Location: login.php?msg=You have been logged out');
 }
 
+function createDBObject(){
+    $mysqli = new mysqli(_DB_HOST, _DB_USER, _DB_PASS, _DB_TABLE, _DB_PORT);
+    return $mysqli;
+}
+
 
 ?>
