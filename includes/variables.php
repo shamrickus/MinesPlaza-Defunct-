@@ -1,6 +1,5 @@
 <?php
 require 'login_func.php';
-
 define('_DB_HOST', 'localhost');
 define('_DB_PASS', 'foobar');
 define('_DB_USER', 'root');
