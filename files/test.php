@@ -1,6 +1,5 @@
 <?php
 require '../includes/variables.php';
-session_start();
 if(!isLoggedIn())
 {
     header('Location: login.php?msg=You need to be logged in to view test.php.');
