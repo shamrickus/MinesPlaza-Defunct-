@@ -19,7 +19,7 @@ $msg .= validateEmail($email);
 $msg .= validateUsername)($username);
 */
 
-if($msg != '') $msg = header('Location: login.php?msg='.$msg);
+if($msg != '') $msg = header('Location: register.php?msg='.$msg);
 else{
 	$hash = password_hash($pass, PASSWORD_DEFAULT);
 
@@ -31,7 +31,7 @@ else{
 		header('Location: login.php?msg=Created User');
 	}
     else{
-        header('Location: login.php?msg=Cannot Insert Into DB');
+        header('Location: register.php?msg=Cannot Insert Into DB');
     }
 }
 
