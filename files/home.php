@@ -40,15 +40,16 @@
 
 #button:hover {
 	border: none;
-	background:#CC9900;
+	background:#636343;
 }
 
-body {background-color:lightgray}
+body {background-color:#202010}
 
 h1	{
 	font-family: 'Times New Roman';
 	font-size: 3.45em;
 	display: block;
 	font-weight: bold;
+	color: #fff
 }
 </style>
