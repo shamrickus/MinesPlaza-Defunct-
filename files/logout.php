@@ -1,5 +1,5 @@
 <?php
-require '../includes/variables.php';
+require '../includes/login_func.php';
 
 logout();
 
