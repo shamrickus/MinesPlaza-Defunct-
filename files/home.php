@@ -11,15 +11,10 @@
   	<h1>Share and find wealth at Mines Plaza</h1>
   <div data-role="page" id="home"> 
     <div data-role="content">
-        <input type="button" id="button" value="Browse" />
-        <input type="button" id="button" value="Sell" />
-        <input type="button" id="button" value="Reviews" />
-        <input type="button" id="button" value="Account" />
-        <br />
-        <a href="#" data-role="button" id="hrefButton1">HREF Me 1</a>
-        <a href="#" data-role="button" id="hrefButton2">HREF Me 2</a>
-        <a href="#" data-role="button" id="hrefButton3">HREF Me 3</a>
-        <a href="#" data-role="button" id="hrefButton4">HREF Me 4</a>
+        <input type="button" id ="button" value="Browse" onclick="location.href='browse.php';"/>
+        <input type="button" id ="button" value="Sell" onclick="location.href='google.com';"/>
+        <input type="button" id ="button" value="Reviews" onclick="location.href='google.com';"/>
+        <input type="button" id ="button" value="Account" onclick="location.href='google.com';"/>	
     </div>
 </div>
   </body>
@@ -31,7 +26,7 @@
 <style> 
 #button {
 	height: 350px;
-	width: 750px; 
+	width: 782px; 
 	background-color: #ccc;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
