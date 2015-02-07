@@ -8,7 +8,20 @@
     <script src="js/jquery.flip.min.js"></script>
     <meta charset="utf-8">
 </head>
-<div class="container">    
+<div class="container">
+<?php
+if(isset($_REQUEST['msg'])){
+    $msg = $_REQUEST['msg'];
+    echo '
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            '.$msg.'
+        </div>
+    ';
+}
+?>
 <div id="loginbox" style="width:450px;margin:auto;margin-top:50px;">                    
     <div class="panel panel-info" style="margin:auto;width:450px;">
         <div class="panel-heading">

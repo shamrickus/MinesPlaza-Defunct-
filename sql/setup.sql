@@ -15,5 +15,6 @@ CREATE TABLE user_session(
     id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
     session_id VARCHAR(32) NOT NULL,
+    expire_time INT NOT NULL
     PRIMARY KEY(id)
 );
