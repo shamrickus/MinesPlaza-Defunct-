@@ -53,6 +53,7 @@ function createSession($userid){
 function logout($userid = 0){
     $mysqli = createDBObject();
     if($userid == 0) $userid = $_COOKIE['SessionUser'];
+    $query = "DELETE FROM user_session WHERE "
     $result = $mysqli->query('DELETE FROM user_session WHERE user_id='.$userid);
     setcookie('SessionUser', 0, 1);
     setcookie('SessionId', 0, 1);

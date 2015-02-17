@@ -15,19 +15,6 @@ require 'header.php';
     <meta charset="utf-8">
 </head>
 <div class="container">
-<?php
-if(isset($_REQUEST['msg'])){
-    $msg = $_REQUEST['msg'];
-    echo '
-        <div class="alert alert-warning alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            '.$msg.'
-        </div>
-    ';
-}
-?>
 <div id="signupbox" style="margin:auto;margin-top:50px;width:450px" >
     <div class="panel panel-info" style="margin:auto;width:450px;">
         <div class="panel-heading">
