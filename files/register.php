@@ -39,19 +39,19 @@ if(isset($_REQUEST['msg'])){
             <form id="signupform" class="form-horizontal" role="form" method="post" action="register_processing.php">
                 <div style="margin-bottom:25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                    <input type="text" class="form-control" data-placement="bottom" data-toggle="popover" data-reqs="em;4" data-content="Must be a valid email, min: 4 characters" name="email" placeholder="email">
+                    <input type="text" class="form-control" data-placement="top" data-toggle="popover" data-reqs="em;4" data-content="Must be a valid email, min: 4 characters" name="email" placeholder="email">
                 </div>
                 <div style="margin-bottom: 25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input type="text" class="form-control" name="username" data-placement="bottom" data-toggle="popover" data-reqs="an;3" data-content="Alpha numeric, min: 3 characters" placeholder="username">
+                    <input type="text" class="form-control" name="username" data-placement="top" data-toggle="popover" data-reqs="an;3" data-content="Alpha numeric, min: 3 characters" placeholder="username">
                 </div>
                 <div style="margin-bottom: 25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" class="form-control" name="password"  data-placement="bottom" data-toggle="popover" data-reqs="6" data-content="Minimum 6" placeholder="password">
+                    <input type="password" class="form-control" name="password"  data-placement="top" data-toggle="popover" data-reqs="6" data-content="Minimum 6" placeholder="password">
                 </div>
                 <div style="margin-bottom: 25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" class="form-control" name="password_re"  data-placement="bottom" data-toggle="popover" data-reqs="6" data-content="Minimum 6"  placeholder="password again">
+                    <input type="password" class="form-control" name="password_re"  data-placement="top" data-toggle="popover" data-reqs="6" data-content="Minimum 6"  placeholder="password again">
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12 controls">
@@ -62,7 +62,7 @@ if(isset($_REQUEST['msg'])){
                     <div class="col-md-12 control">
                         <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                             Have an account? 
-                            <a href="#">
+                            <a href="login.php">
                                 Sign In Here
                             </a>
                         </div>

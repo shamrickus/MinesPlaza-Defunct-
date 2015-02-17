@@ -9,6 +9,7 @@ $mysqli = createDBObject();
 
 function createDBObject(){
     $mysqli = new mysqli(_DB_HOST, _DB_USER, _DB_PASS, _DB_TABLE, _DB_PORT);
+    $mysqli->set_charset('utf8');
     return $mysqli;
 }
 ?>

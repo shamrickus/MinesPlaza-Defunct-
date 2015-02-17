@@ -8,24 +8,18 @@ $email = $_REQUEST['email'];
 $pass = $_REQUEST['password'];
 $pass_re = $_REQUEST['password_re'];
 
-
-//NEED TO SANITIZE INPUTS BEFORE DOING DB STUFF
-
 $msg = '';
-$msg .= validatePassword($pass, $pass_re);
-// Unimplemented functions
-/*
 $msg .= validateEmail($email);
-$msg .= validateUsername)($username);
-*/
+$msg .= validateUsername($username);
+$msg .= validatePassword($pass, $pass_re);
 
 if($msg != '') $msg = header('Location: register.php?msg='.$msg);
 else{
 	$hash = password_hash($pass, PASSWORD_DEFAULT);
 
-	$query = "INSERT INTO users ( username, password, email )
-				VALUES ( '$username' , '$hash' , '$email' );";
-	if ($stmt = $mysqli->prepare($query)){
+	if ($stmt = $mysqli->prepare('INSERT INTO users ( username, password, email )
+				VALUES ( ?, ?, ?)')){
+        $stmt->bind_param('sss', $username, $hash, $email);
 		$stmt->execute();
 		$stmt->close();
 		header('Location: login.php?msg=Created User');

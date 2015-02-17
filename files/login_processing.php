@@ -5,9 +5,8 @@ require('../includes/login_func.php');
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 
-//NEED TO DO SANITIZATION BEFORE DOING DB STUFF
-$query = 'SELECT * FROM users WHERE username = "'.$username.'"';
-if($stmt = $mysqli->prepare($query)){
+if($stmt = $mysqli->prepare('SELECT * FROM users WHERE username = ?')){
+    $stmt->bind_param('s', $username);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
