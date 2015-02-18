@@ -1,3 +1,4 @@
+<?php include '../includes/login_func.php' ?>
 <!--DOCTYPE HTML-->
 <html>
 <head>
@@ -39,18 +40,19 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.php">Login</a></li>
-        <!--<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>-->
-        <li><a href="login.php">Register</a></li>
+        <?php
+            if(loggedIn(-1)){
+                echo '
+                    <li><a href="logout.php">Logout</a></li>
+                ';
+            }
+            else{
+                echo '
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="register.php">Register</a></li>  
+                ';
+            }
+        ?>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
