@@ -1,4 +1,6 @@
 jQuery(document).ready(function(){	
+ 	jQuery('[data-toggle="popover"]').popover();  
+    
 	jQuery('[data-reqs]').each(function(){
 		jQuery(this).blur(function(){
 			if(jQuery(this).val().length > 0 && jQuery(this).attr('type') !== 'password'){

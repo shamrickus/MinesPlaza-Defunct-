@@ -11,7 +11,6 @@ require 'header.php';
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="js/required_form.js"></script>
-    <script src="js/popover.js"></script>
     <script src="js/disabled.js"></script>
     <meta charset="utf-8">
 </head>
