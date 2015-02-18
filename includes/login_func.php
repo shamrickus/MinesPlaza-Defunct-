@@ -27,13 +27,14 @@ function createSession($userid){
  function loggedIn($userid = 0){
      $mysqli = createDBObject();
     if($userid <= 0) $userid = $_COOKIE['SessionUser'];
+    if($userid == 0) return false;
     $query = "SELECT * FROM user_session WHERE user_id= ?";
     if($stmt = $mysqli->prepare($query)){
         $stmt->bind_param('i', $userid);
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
-        if(strcmp($_SESSION['SessionID'], $row['session_id'])){
+        if(strcmp($_COOKIE['SessionID'], $row['session_id'])){
             if(time() < $row['expire_time']){
                 $time = time() + 3600;
                 $query = "UPDATE user_session SET expire_time = ? WHERE user_id = ?";
@@ -83,6 +84,7 @@ function validateEmail($email){
     }
     else return "Cannot connect to DB";
      if(!preg_match('/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/', $email)) return "Must be a valid email\n";
+    if(strlen($email) > 32) return "Email is too long\n";
   return '';
 }
 
@@ -98,6 +100,7 @@ function validateUsername($user){
     else return "Cannot connect to DB";
     if(strlen($user) < 3) return "Username must be at least three characters\n";
     if(!preg_match('/^[\pL0-9]+$/', $user)) return "Username must be alpha numeric\n";
+    if(strlen($user) > 30) return "Username is too long\n";
     return '';
 }
 
