@@ -5,7 +5,7 @@ require 'header.php';
 <html lang="en">
 <head>
     <title>Mines Plaza</title>
-    <script src="http:////cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="jquery/jquery-1.11.2.min.js"></script>
     <script src="js/disabled.js"></script>
     <meta charset="utf-8">
 </head>
@@ -21,7 +21,7 @@ require 'header.php';
             <form id="loginform" class="form-horizontal" role="form" method="post" action="login_processing.php">
                 <div style="margin-bottom: 25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input id="login-username" type="text" class="form-control" name="username" placeholder="username">                                        
+                    <input id="login-username" type="text" class="form-control" name="username" placeholder="username">        
                 </div>           
                 <div style="margin-bottom: 10px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
