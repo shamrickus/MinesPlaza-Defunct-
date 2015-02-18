@@ -22,10 +22,11 @@ function createSession($userid){
     }
 }
 
-//Check if a user is logged in
+//Check if a user is logged in, 0 means check cookies,
+//-1 means check cookies but don't logout if not logged in
  function loggedIn($userid = 0){
      $mysqli = createDBObject();
-    if($userid == 0) $userid = $_COOKIE['SessionUser'];
+    if($userid <= 0) $userid = $_COOKIE['SessionUser'];
     $query = "SELECT * FROM user_session WHERE user_id= ?";
     if($stmt = $mysqli->prepare($query)){
         $stmt->bind_param('i', $userid);
@@ -40,20 +41,24 @@ function createSession($userid){
                     $stmt->bind_param('ii', $time, $userid);
                     $stmt->execute();
                 }
-                else logout($userid);
+                else if($userid != -1) logout($userid);
+                else return false;
             }
-            else logout($userid);
+            else if($userid != -1) logout($userid);
+            else return false;
         }
-        else logout($userid);
+        else if($userid != -1) logout($userid);
+        else return false;
      }
-     else logout($userid);
+     else if($userid != -1) logout($userid);
+     else return false;
+     return true;
 }
 
 //Logout given user or logout user based on cookies
 function logout($userid = 0){
     $mysqli = createDBObject();
     if($userid == 0) $userid = $_COOKIE['SessionUser'];
-    $query = "DELETE FROM user_session WHERE "
     $result = $mysqli->query('DELETE FROM user_session WHERE user_id='.$userid);
     setcookie('SessionUser', 0, 1);
     setcookie('SessionId', 0, 1);
