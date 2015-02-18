@@ -7,6 +7,7 @@
         <?php 
             include 'header.php'
          ?>    
+
          <div class="container">
   <div class="row">
     <div class="col-md-4 col-sm-5">
@@ -22,6 +23,8 @@
         <div class="tab-content">
           <div class="tab-pane active" id="a">
             <h3>Message Board</h3>
+            <label for="text1">Name:
+			<input type="text" name="text1" id="text1" /> </label>
           </div>
 
           <div class="tab-pane" id="b">
@@ -37,7 +40,30 @@
           </div>
 
           <div class="tab-pane" id="e">
-            <h3>Account Settings</h3>              
+            <h3>Account Settings</h3> 
+
+			<form action="update_account_settings.php" method = "POST">
+			<br>
+			First name:&emsp;&emsp;&nbsp;&nbsp;&nbsp; <input type="text" name="firstname" value="Marvin">
+			<br><br>
+			Last name: &emsp;&emsp;&nbsp;&nbsp; <input type="text" name="lastname" value="Miner">
+			<br><br>
+			E-Mail Address:&emsp;<input type="text" name="emailaddr" value="Marvner@mines.edu">
+			<br><br>  
+			Username:&emsp;&emsp;&emsp;&nbsp;<input type="text" name="username" value ="current">
+			<br><br>
+			Password&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type ="password" name="passwd" value = "asdf">
+			<br><br>
+			  
+				<input type="radio" name="sex" value="male" checked>Male
+				<br>
+				<input type="radio" name="sex" value="female">Female
+				<br>
+				<input type="radio" name="sex" value="other">Other
+			 
+
+			  	<input type="submit" value="Submit">
+			</form>           
           </div>
         </div><!-- /tab-content -->
       </div><!-- /tabbable -->
@@ -64,4 +90,5 @@
   .active .glyphicon {
     color: #333;
   }
+
 </style>

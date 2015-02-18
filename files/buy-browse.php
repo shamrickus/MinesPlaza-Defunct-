@@ -1,15 +1,38 @@
 <!--DOCTYPE HTML-->
 <html>
 	<head>
-
+		<style>
+			div.panel:hover #filterpanel{
+				display:inline;
+			}
+			div#filterpanel{
+				display:none;
+				width:100%;
+				margin:auto;
+			}
+		</style>
 	</head>
 	<body>	
 	  	<?php
 	  		include 'header.php'
 	  	?>
+	  	<div class="panel panel-default" style="width:50%;margin:auto;margin-bottom:30px;text-align:center;">
+	  		<button type="submit" style="width:100%" class="btn btn-default">Filter <span class="glyphicon glyphicon-menu-down"></span></button>
+			<div class="panel panel-default" id="filterpanel">
+				<form method="POST">
+					<input type="checkbox">
+					<div style="height:20px;line-height:20px">
+						  show only faggots?
+					</div>
+					<br>
+					<input type="checkbox">  show only faggots?
+				</form>
+			</div>
+		</div>
 	  	<div class="panel panel-default" style="width:50%;margin:auto;">
 			<?php
-			for($i=0;$i<5;$i++){
+			$numposts=rand(1,7);
+			for($i=0;$i<$numposts;$i++){
 				$random=rand(0,25);
 				echo '<div class="panel-body">
 		    		<ul class="list-group">
@@ -18,13 +41,14 @@
 					    	<div class="media">
 								<div class="media-left media-middle">
 									<a href="#" class="thumbnail">
-										<img class="media-object" src="resources/dildo.jpeg" alt="dildo">
+										<img class="media-object" src="../../resources/dildo.jpeg" alt="dildo">
 									</a>
 								</div>
 								<div class="media-body">
 									<h4 class="media-heading">Faggot</h4>
-									<p>I am a faggot, and I want to sell this gently used dildo</p>
-									<p>867-5309; fag@got.gay hmu</p>
+									<p>I am a faggot, and I want to buy this model of dildo</p>
+									<p>brand-new to ravaged-by-your-horrendous-sexual-appetite quality please</p>
+									<p>867-5309; f@gg.t hmu</p>
 								</div>
 							</div>
 						</li>
