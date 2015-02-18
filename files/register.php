@@ -27,19 +27,19 @@ require 'header.php';
             <form id="signupform" class="form-horizontal" role="form" method="post" action="register_processing.php">
                 <div style="margin-bottom:25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                    <input type="text" class="form-control" data-placement="top" data-toggle="popover" data-reqs="em;4" data-content="Must be a valid email, min: 4 characters" name="email" placeholder="email">
+                    <input type="text" class="form-control" data-placement="top" data-trigger="focus" data-toggle="popover" data-reqs="em;4" data-content="Must be a valid email, min: 4 characters" name="email" placeholder="email">
                 </div>
                 <div style="margin-bottom: 25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input type="text" class="form-control" name="username" data-placement="top" data-toggle="popover" data-reqs="an;3" data-content="Alpha numeric, min: 3 characters" placeholder="username">
+                    <input type="text" class="form-control" name="username" data-trigger="focus" data-placement="top" data-toggle="popover" data-reqs="an;3" data-content="Alpha numeric, min: 3 characters" placeholder="username">
                 </div>
                 <div style="margin-bottom: 25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" class="form-control" name="password"  data-placement="top" data-toggle="popover" data-reqs="6" data-content="Minimum 6 characters" placeholder="password">
+                    <input type="password" class="form-control" name="password"  data-trigger="focus" data-placement="top" data-toggle="popover" data-reqs="6" data-content="Minimum 6 characters" placeholder="password">
                 </div>
                 <div style="margin-bottom: 25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" class="form-control" name="password_re"  data-placement="top" data-toggle="popover" data-reqs="6" data-content="Minimum 6 characters"  placeholder="password again">
+                    <input type="password" class="form-control" name="password_re" data-trigger="focus" data-placement="top" data-toggle="popover" data-reqs="6" data-content="Minimum 6 characters"  placeholder="password again">
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12 controls">
