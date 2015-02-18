@@ -50,7 +50,7 @@
             <li><a href="#">Separated link</a></li>
           </ul>
         </li>-->
-        <li><a href="login.php">Register</a></li>
+        <li><a href="register.php">Register</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
