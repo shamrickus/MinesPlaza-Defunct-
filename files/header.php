@@ -1,10 +1,15 @@
-<?php include '../includes/login_func.php' ?>
+<?php 
+    include '../includes/login_func.php';
+    $add = $_SERVER['REQUEST_URI'];
+    $add = split('/', $add)[count($add)];
+?>
 <!--DOCTYPE HTML-->
 <html>
 <head>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script src="jquery/jquery-1.11.2.min.js"></script>
+    <script src="jquery/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/navbar.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -23,7 +28,7 @@
     <!-- Colleaeonstiasuetnct the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="home.php">Home</a></li>
+        <li class="<?php if($add == "home.php") echo ' active' ?> clickable"><a href="home.php">Home</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Browse <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -48,8 +53,12 @@
             }
             else{
                 echo '
-                    <li><a href="login.php">Login</a></li>
-                    <li><a href="register.php">Register</a></li>  
+                    <li class="';
+                if($add == "login.php") echo ' active';
+                echo ' clickable"><a href="login.php">Login</a></li>
+                    <li class="';
+                if($add == "register.php") echo ' active';
+                echo ' clickable"><a href="register.php">Register</a></li>  
                 ';
             }
         ?>
