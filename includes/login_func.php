@@ -73,14 +73,32 @@ function validatePassword($pass, $pass_re){
 }
 
 function validateEmail($email){
-  if(!preg_match('/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/', $email)) return "Must be a valid email\n";
+    $mysqli = createDBObject();
+    if($stmt = $mysqli->prepare('SELECT * FROM users WHERE email = ?')){
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        if (count($row)) return "Email already exists\n";
+    }
+    else return "Cannot connect to DB";
+     if(!preg_match('/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/', $email)) return "Must be a valid email\n";
   return '';
 }
 
 function validateUsername($user){
-  if(strlen($user) < 4) return "Username must be atleast three characters\n";
-  if(!preg_match('/^[\pL0-9]+$/', $user)) return "Username must be alpha numeric\n";
-  return '';
+    $mysqli = createDBObject();
+    if($stmt = $mysqli->prepare('SELECT * FROM users WHERE username = ?')){
+        $stmt->bind_param('s', $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        if (count($row)) return "Username already exists\n";
+    }
+    else return "Cannot connect to DB";
+    if(strlen($user) < 3) return "Username must be at least three characters\n";
+    if(!preg_match('/^[\pL0-9]+$/', $user)) return "Username must be alpha numeric\n";
+    return '';
 }
 
 ?>

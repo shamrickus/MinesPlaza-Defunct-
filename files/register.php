@@ -34,11 +34,11 @@ require 'header.php';
                 </div>
                 <div style="margin-bottom: 25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" class="form-control" name="password"  data-placement="top" data-toggle="popover" data-reqs="6" data-content="Minimum 6" placeholder="password">
+                    <input type="password" class="form-control" name="password"  data-placement="top" data-toggle="popover" data-reqs="6" data-content="Minimum 6 characters" placeholder="password">
                 </div>
                 <div style="margin-bottom: 25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" class="form-control" name="password_re"  data-placement="top" data-toggle="popover" data-reqs="6" data-content="Minimum 6"  placeholder="password again">
+                    <input type="password" class="form-control" name="password_re"  data-placement="top" data-toggle="popover" data-reqs="6" data-content="Minimum 6 characters"  placeholder="password again">
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12 controls">
