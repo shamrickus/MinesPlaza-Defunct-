@@ -12,8 +12,10 @@ $msg = '';
 $msg .= validateEmail($email);
 $msg .= validateUsername($username);
 $msg .= validatePassword($pass, $pass_re);
-
-if($msg != '') $msg = header('Location: register.php?msg='.$msg);
+if($msg != ''){
+    header('Location: register.php?msg='.$msg);
+    exit();
+}
 else{
 	$hash = password_hash($pass, PASSWORD_DEFAULT);
 
@@ -23,9 +25,11 @@ else{
 		$stmt->execute();
 		$stmt->close();
 		header('Location: login.php?msg=Created User');
+        exit();
 	}
     else{
         header('Location: register.php?msg=Cannot Insert Into DB');
+        exit();
     }
 }
 

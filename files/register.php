@@ -5,13 +5,14 @@ require 'header.php';
 <html lang="en">
 <head>
     <title>Mines Plaza</title>
-    <script src="http:////cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="jquery/jquery-1.11.2.min.js"></script>
+    <script src="jquery/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="jquery/jquery-ui.min.css" />
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="js/required_form.js"></script>
     <script src="js/popover.js"></script>
+    <script src="js/disabled.js"></script>
     <meta charset="utf-8">
 </head>
 <div class="container">
@@ -42,14 +43,14 @@ require 'header.php';
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12 controls">
-                        <button id="btn-signup" type="button submit" class="btn btn-info"><i class="icon-hand-right"></i> Sign Up</button>
+                        <button id="btn-signup" type="button submit" class="btn btn-info" onclick="disableAll()"><i class="icon-hand-right"></i> Sign Up</button>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-12 control">
                         <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                             Have an account? 
-                            <a href="login.php">
+                            <a href="login.php" onclick="disableAll()">
                                 Sign In Here
                             </a>
                         </div>

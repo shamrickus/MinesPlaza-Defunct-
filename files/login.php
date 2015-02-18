@@ -6,6 +6,7 @@ require 'header.php';
 <head>
     <title>Mines Plaza</title>
     <script src="http:////cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/disabled.js"></script>
     <meta charset="utf-8">
 </head>
 <div class="container">
@@ -28,14 +29,14 @@ require 'header.php';
                 </div>
                 <div style="margin-top:25px" class="form-group">
                     <div class="col-sm-12 controls">
-                        <button id="btn-signup" type="button submit" class="btn btn-info"><i class="icon-hand-right"></i> Login</button>
+                        <button id="btn-signup" type="button submit" onclick="disableAll()" class="btn btn-info"><i class="icon-hand-right"></i> Login</button>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-12 control">
                         <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                             Don't have an account! 
-                            <a href="register.php">
+                            <a href="register.php" onclick="disableAll()">
                                 Sign Up Here
                             </a>
                         </div>

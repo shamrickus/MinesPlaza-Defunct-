@@ -3,8 +3,8 @@
 <html>
 <head>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script src="jquery/jquery-1.11.2.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -59,15 +59,16 @@
 </nav>
 <?php
 if(isset($_REQUEST['msg'])){
-  $msg = $_REQUEST['msg'];
-  echo '
-      <div class="alert alert-warning alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-          </button>
-          '.$msg.'
-      </div>
-  ';
+    $msg = $_REQUEST['msg'];
+    $msg = str_replace("||", "<br>", $msg);
+    echo '
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+            '.$msg.'
+    </div>
+    ';
 }
 ?>
 </body>

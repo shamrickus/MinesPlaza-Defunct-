@@ -14,7 +14,9 @@ if($stmt = $mysqli->prepare('SELECT * FROM users WHERE username = ?')){
     else{
         createSession($row['id']);
         header('Location: home.php?msg=Successfully logged in.');
+        exit();
     }
 }
 else header('Location: login.php?msg=Invalid Username/Password');
+exit();
 ?>
