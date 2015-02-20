@@ -2,6 +2,7 @@
     include '../includes/login_func.php';
     $add = $_SERVER['REQUEST_URI'];
     $add = split('/', $add)[count($add)];
+    $add = split("\?", $add)[0];
 ?>
 <!--DOCTYPE HTML-->
 <html>
@@ -71,10 +72,7 @@ if(isset($_REQUEST['msg'])){
     $msg = $_REQUEST['msg'];
     $msg = str_replace("||", "<br>", $msg);
     echo '
-    <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="alert alert-warning alert-dismissible" role="alert" style="width:80%;min-width:600px;margin:auto;text-align:center;border:1px solid #faebcc;-moz-box-shadow: 0 1px 3px -1px #1c1c1c;-webkit-box-shadow: 0 1px 3px -1px #1c1c1c;box-shadow: 0 1px 3px -1px #1c1c1c;" aria-label="Close" data-dismiss="alert">
             '.$msg.'
     </div>
     ';

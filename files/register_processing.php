@@ -7,11 +7,13 @@ $username = $_REQUEST['username'];
 $email = $_REQUEST['email'];
 $pass = $_REQUEST['password'];
 $pass_re = $_REQUEST['password_re'];
+$cap = $_REQUEST['g-recaptcha-response'];
 
 $msg = '';
 $msg .= validateEmail($email);
 $msg .= validateUsername($username);
 $msg .= validatePassword($pass, $pass_re);
+$msg .= validateCaptcha($cap);
 if($msg != ''){
     header('Location: register.php?msg='.$msg);
     exit();

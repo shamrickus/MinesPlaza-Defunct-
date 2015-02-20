@@ -4,6 +4,9 @@ require('../includes/login_func.php');
 
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
+$cap = $_REQUEST['g-recaptcha-response'];
+
+if(validateCaptcha($cap) != '') header('Location: login.php?msg=Invalid Recaptcha');
 
 if($stmt = $mysqli->prepare('SELECT * FROM users WHERE username = ?')){
     $stmt->bind_param('s', $username);

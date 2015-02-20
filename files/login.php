@@ -7,6 +7,7 @@ require 'header.php';
     <title>Mines Plaza</title>
     <script src="jquery/jquery-1.11.2.min.js"></script>
     <script src="js/disabled.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <meta charset="utf-8">
 </head>
 <div class="container">
@@ -23,9 +24,12 @@ require 'header.php';
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input id="login-username" type="text" class="form-control" name="username" placeholder="username">        
                 </div>           
-                <div style="margin-bottom: 10px" class="input-group">
+                <div style="margin-bottom: 25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                     <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                </div>
+                <div style="margin-bottom:25px">
+                    <div class="g-recaptcha" style="margin-left:60px" data-sitekey="6LfEZgITAAAAAGIOotSLxMe_QEH4hZHp5T42IIH5"></div>
                 </div>
                 <div style="margin-top:25px" class="form-group">
                     <div class="col-sm-12 controls">

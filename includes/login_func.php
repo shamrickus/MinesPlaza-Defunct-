@@ -70,7 +70,7 @@ function logout($userid = 0){
 //Validates password for registering
 function validatePassword($pass, $pass_re){
     if($pass != $pass_re) return "Passwords don't match||";
-    if(strlen($pass) < 7) return "Password is not long enough||";
+    if(strlen($pass) < 6) return "Password must be atleast 6 characters||";
     return '';
 }
 
@@ -102,6 +102,18 @@ function validateUsername($user){
         if (count($row)) return "Username already exists||";
     }
     else return "Cannot connect to DB";
+    return '';
+}
+
+function validateCaptcha($cap){
+    $ch = curl_init('https://www.google.com/recaptcha/api/siteverify?secret=	6LfEZgITAAAAAB0LQG4S46ghPpLi5dThqB5ZOX5Y&response='.$cap.'&remoteip='.$_SERVER['REMOTE_ADDR']);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    if(!$data = curl_exec($ch)){
+        $response = json_decode($data,true);
+        if (!$response['success']) return 'Recaptcha error';
+    }
+    curl_close($ch);
     return '';
 }
 

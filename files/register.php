@@ -12,6 +12,7 @@ require 'header.php';
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="js/required_form.js"></script>
     <script src="js/disabled.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <meta charset="utf-8">
 </head>
 <div class="container">
@@ -39,6 +40,9 @@ require 'header.php';
                 <div style="margin-bottom: 25px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                     <input type="password" class="form-control" name="password_re" data-trigger="focus" data-placement="top" data-toggle="popover" data-reqs="6" data-content="Minimum 6 characters"  placeholder="password again">
+                </div>
+                <div style="margin-bottom:25px">
+                    <div class="g-recaptcha" style="margin-left:60px" data-sitekey="6LfEZgITAAAAAGIOotSLxMe_QEH4hZHp5T42IIH5"></div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12 controls">
