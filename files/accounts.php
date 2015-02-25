@@ -5,8 +5,10 @@
 
     <body>
         <?php 
-            include 'header.php'
-         ?>    
+           include 'header.php';
+	   echo loggedIn(0);
+	?>	
+
 
          <div class="container">
   <div class="row">
@@ -33,6 +35,10 @@
 
           <div class="tab-pane" id="c">
               <h3>Watched Listings</h3>
+              <p>
+              	IN HERE WE WILL POST ALL POSTS THAT HAVE BEEN FAVORITED
+              	TO BE FOLLOWED UP ON!
+              </p>
           </div>
 
           <div class="tab-pane" id="d">
@@ -41,7 +47,7 @@
 
           <div class="tab-pane" id="e">
             <h3>Account Settings</h3> 
-
+		
 			<form action="update_account_settings.php" method = "POST">
 			<br>
 			First name:&emsp;&emsp;&nbsp;&nbsp;&nbsp; <input type="text" name="firstname" value="Marvin">
