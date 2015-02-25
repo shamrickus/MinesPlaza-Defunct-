@@ -5,7 +5,8 @@
 
     <body>
         <?php 
-            include 'header.php'
+            include 'header.php';
+            loggedIn(0);            
          ?>    
 
          <div class="container">
