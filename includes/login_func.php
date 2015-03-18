@@ -24,10 +24,11 @@ function createSession($userid){
 
 //Check if a user is logged in, 0 means check cookies,
 //-1 means check cookies but don't logout if not logged in
- function loggedIn($userid = 0){
+ function loggedIn($userids = 0){
     global $mysqli;
-    if($userid <= 0) $userid = $_COOKIE['SessionUser'];
-    if($userid == 0) return false;
+    if($userids <= 0) $userid = $_COOKIE['SessionUser'];
+    if($userid == 0 && $userids != -1) logout($userid);
+    else if($userid == 0) return false;
     $query = "SELECT * FROM user_session WHERE user_id= ?";
     if($stmt = $mysqli->prepare($query)){
         $stmt->bind_param('i', $userid);
@@ -42,16 +43,16 @@ function createSession($userid){
                     $stmt->bind_param('ii', $time, $userid);
                     $stmt->execute();
                 }
-                else if($userid != -1) logout($userid);
+                else if($userids != -1) logout($userid);
                 else return false;
             }
-            else if($userid != -1) logout($userid);
+            else if($userids != -1) logout($userid);
             else return false;
         }
-        else if($userid != -1) logout($userid);
+        else if($userids != -1) logout($userid);
         else return false;
      }
-     else if($userid != -1) logout($userid);
+     else if($userids != -1) logout($userid);
      else return false;
      return true;
 }

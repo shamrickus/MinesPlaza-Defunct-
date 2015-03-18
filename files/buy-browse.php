@@ -10,6 +10,13 @@
 				width:100%;
 				margin:auto;
 			}
+			div.wrapper{
+				display:inline-block;
+				width:25%;
+				margin-left: 5px;
+				margin-top: 5px;
+				border-width:3px;
+			}
 		</style>
 	</head>
 	<body>	
@@ -19,14 +26,22 @@
 	  	<div class="panel panel-default" style="width:50%;margin:auto;margin-bottom:30px;text-align:center;">
 	  		<button type="submit" style="width:100%" class="btn btn-default">Filter <span class="glyphicon glyphicon-menu-down"></span></button>
 			<div class="panel panel-default" id="filterpanel">
-				<form method="POST">
+			<!--<div class="wrapper">-->
+				<div class="input-group">
+	      			<span class="input-group-addon">
+	        			<input type="checkbox" aria-label="...">
+	      			</span>
+	      			<div class="form-control">Show only Stephens?</div>
+	    		</div>
+	    	<!--</div>-->
+				<div class="input-group" style="width:100%">
 					<input type="checkbox">
 					<div style="height:20px;line-height:20px">
 						  show only faggots?
 					</div>
 					<br>
 					<input type="checkbox">  show only faggots?
-				</form>
+				</div>
 			</div>
 		</div>
 	  	<div class="panel panel-default" style="width:50%;margin:auto;">

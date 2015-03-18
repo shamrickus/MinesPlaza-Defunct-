@@ -5,10 +5,16 @@
 
     <body>
         <?php 
+<<<<<<< HEAD
            include 'header.php';
 	   echo loggedIn(0);
 	?>	
 
+=======
+            include 'header.php';
+            loggedIn(0);            
+         ?>    
+>>>>>>> 39f6c8cc245992e548a5d540ba327c0353daf289
 
          <div class="container">
   <div class="row">
