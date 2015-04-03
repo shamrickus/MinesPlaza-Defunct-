@@ -107,7 +107,7 @@ function validateUsername($user){
 }
 
 function validateCaptcha($cap){
-    $ch = curl_init('https://www.google.com/recaptcha/api/siteverify?secret=	6LfEZgITAAAAAB0LQG4S46ghPpLi5dThqB5ZOX5Y&response='.$cap.'&remoteip='.$_SERVER['REMOTE_ADDR']);
+    $ch = curl_init('https://www.google.com/recaptcha/api/siteverify?secret=6LfEZgITAAAAAB0LQG4S46ghPpLi5dThqB5ZOX5Y&response='.$cap.'&remoteip='.$_SERVER['REMOTE_ADDR']);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     if(!$data = curl_exec($ch)){

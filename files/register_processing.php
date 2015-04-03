@@ -20,9 +20,8 @@ if($msg != ''){
 }
 else{
 	$hash = password_hash($pass, PASSWORD_DEFAULT);
-
 	if ($stmt = $mysqli->prepare('INSERT INTO users ( username, password, email )
-				VALUES ( ?, ?, ?)')){
+				VALUES (?, ?, ?)')){
         $stmt->bind_param('sss', $username, $hash, $email);
 		$stmt->execute();
 		$stmt->close();
