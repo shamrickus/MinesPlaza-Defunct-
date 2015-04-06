@@ -10,12 +10,14 @@ function createSession($userid){
     setcookie('SessionUser', $userid, $time);
     setcookie('SessionID', random(32), $time);
     $sid = $_COOKIE['SessionID'];
+
     
     $result = $mysqli->query('DELETE FROM user_session WHERE user_id='.$userid);
     $query = 'INSERT INTO user_session (user_id, session_id, expire_time)
-				VALUES ( '.$userid.', "'.$sid.'", '.$time.')';
-	if ($stmt = $mysqli->prepare($query)){
-		$stmt->execute();
+                VALUES ( '.$userid.', "'.$sid.'", '.$time.')';
+    if ($stmt = $mysqli->prepare($query)){
+        $stmt->execute();
+        defineUser($uid);
     }
     else{
         logout($userid);
@@ -64,6 +66,7 @@ function logout($userid = 0){
     $result = $mysqli->query('DELETE FROM user_session WHERE user_id='.$userid);
     setcookie('SessionUser', 0, 1);
     setcookie('SessionId', 0, 1);
+    defineUser(0);
     header('Location: login.php?msg=You have been logged out');
     exit();
 }
@@ -116,6 +119,26 @@ function validateCaptcha($cap){
     }
     curl_close($ch);
     return '';
+}
+//Pass userid for given uid, 0 for destroy, -1 for cookies
+function defineUser($uid = -1){
+    global $mysqli;
+    if($uid || $uid == -1){
+        if($uid == -1) $uid = $_COOKIE['SessionUser'];
+        $stmt = $mysqli->prepare('SELECT * FROM users WHERE id = ?');
+        $stmt->bind_param('i', $uid);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        define("USERID", $uid);
+        define("USERNAME", $row['username']);
+        define("EMAIL", $row['email']);
+    }
+    else{
+        define("USERID" , "");
+        define("USERNAME", "");
+        define("EMAIL", "");
+    }
 }
 
 ?>

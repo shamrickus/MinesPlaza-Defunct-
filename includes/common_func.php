@@ -10,4 +10,19 @@ function random($length){
     return $randomString;
 }
 
+function generateCSRF($page, $html = true, $token = ""){
+	$csrf = "";
+	if($token != ""){
+		$csrf = sha1(microtime());
+	}
+	else $csrf = sha1($token);
+
+	
+	
+	if($html){
+		return "<meta content='".$csrf."' name='csrf_token'></meta>";
+	}
+	else return $csrf;
+}
+
 ?>

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+	  	<?php
+	  		include 'header.php';
+	  	?>
   		<title> Mines Plaza</title>
   </head>
 
   <body>
-  	<?php
-  		include 'header.php'
-  	?>
   	<h1 align="center">Share and find wealth at Mines Plaza</h1>
   <div data-role="page" id="home"> 
     <div data-role="content">

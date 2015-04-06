@@ -3,6 +3,7 @@
     $add = $_SERVER['REQUEST_URI'];
     $add = split('/', $add)[count($add)];
     $add = split("\?", $add)[0];
+    defineUser();
 ?>
 <!--DOCTYPE HTML-->
 <html>
