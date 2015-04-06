@@ -70,7 +70,8 @@ CREATE TABLE `user_detail` (
 CREATE TABLE `user_csrf` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT,
-  `csrf` VARCHAR(32),
+  `csrf` VARCHAR(128),
+  `page` VARCHAR(32),
   `expire_time` INT,
   PRIMARY KEY  (`id`)
 );

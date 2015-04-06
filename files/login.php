@@ -9,7 +9,6 @@ require 'header.php';
     <script src="js/disabled.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <meta charset="utf-8">
-    <?php generateCSRF(__FILE__); ?>
 </head>
 <div class="container">
 <div id="loginbox" style="width:450px;margin:auto;margin-top:50px;">                    

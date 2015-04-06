@@ -50,6 +50,7 @@
         <?php
             if(loggedIn(-1)){
                 echo '
+                    <p class="navbar-text" style="cursor:default">'.$USERNAME.'</p>
                     <li><a href="logout.php">Logout</a></li>
                 ';
             }

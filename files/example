@@ -1,0 +1,17 @@
+//CSRF Form usage
+//On form
+<div style="display:none;">
+<input type="text" name="csrf" value="<?php echo generateCSRF(pathinfo(__FILE__, PATHINFO_FILENAME), false); ?>">
+</div>
+<div style="display:none;">
+    <input type="text" name="page" value="<?php echo pathinfo(__FILE__, PATHINFO_FILENAME); ?>">
+</div>
+
+//On reciever
+$csrf = $_REQUEST['csrf'];
+$page = $_REQUEST['page'];
+$msg = validateCSRF($page, $csrf);
+if($msg != ''){
+    header('Location: '.$page.'.php?msg='.$msg);
+    exit();
+}

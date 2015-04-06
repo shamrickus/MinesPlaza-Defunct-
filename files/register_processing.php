@@ -24,9 +24,19 @@ else{
 				VALUES (?, ?, ?)')){
         $stmt->bind_param('sss', $username, $hash, $email);
 		$stmt->execute();
+        $id = $mysqli->insert_id;
 		$stmt->close();
-		header('Location: login.php?msg=Created User');
-        exit();
+        if($stmt = $mysqli->prepare('INSERT INTO user_detail ( user_id ) VALUES (?)')){
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+            $stmt->close();
+    		header('Location: login.php?msg=Created User');
+            exit();
+        }
+        else{
+            header('Location: register.php?msg=Cannot Insert Into DB');
+            exit();    
+        }
 	}
     else{
         header('Location: register.php?msg=Cannot Insert Into DB');

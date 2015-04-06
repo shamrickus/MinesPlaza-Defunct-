@@ -17,7 +17,7 @@ function createSession($userid){
                 VALUES ( '.$userid.', "'.$sid.'", '.$time.')';
     if ($stmt = $mysqli->prepare($query)){
         $stmt->execute();
-        defineUser($uid);
+        defineUser($userid);
     }
     else{
         logout($userid);
@@ -122,22 +122,36 @@ function validateCaptcha($cap){
 }
 //Pass userid for given uid, 0 for destroy, -1 for cookies
 function defineUser($uid = -1){
-    global $mysqli;
+    global $mysqli, $USERID, $USERNAME, $EMAIL, $FIRSTNAME, $LASTNAME, $PHONE, $DISABLED;
     if($uid || $uid == -1){
-        if($uid == -1) $uid = $_COOKIE['SessionUser'];
-        $stmt = $mysqli->prepare('SELECT * FROM users WHERE id = ?');
+        if($uid == -1){
+            if(!isset($_COOKIE['SessionUser'])) return;
+            $uid = $_COOKIE['SessionUser'];  
+        } 
+        $stmt = $mysqli->prepare('SELECT * FROM user_detail, users WHERE users.id = user_detail.user_id AND users.id = ?');
         $stmt->bind_param('i', $uid);
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
-        define("USERID", $uid);
-        define("USERNAME", $row['username']);
-        define("EMAIL", $row['email']);
+        $USERID = $uid;
+        $USERNAME = $row['username'];
+        $EMAIL = $row['email'];
+        $FIRSTNAME = $row['first_name'];
+        $LASTNAME = $row['last_name'];
+        $PHONE = $row['phone'];
+        $DISABLED = $row['disabled'];
+        $MOD = $row['moderator'];
+        $stmt->close();
     }
     else{
-        define("USERID" , "");
-        define("USERNAME", "");
-        define("EMAIL", "");
+        $USERID = 0;
+        $USERNAME = "";
+        $EMAIL = "";
+        $FIRSTNAME = "";
+        $LASTNAME = "";
+        $PHONE = 0;
+        $DISABLED = false;
+        $MOD = false;
     }
 }
 

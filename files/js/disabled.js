@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	enableAll();
+
 	jQuery('.btn').each(function(){
 		jQuery(this).click(function(event){
 			if (jQuery(this).attr('type') == 'submit'){
