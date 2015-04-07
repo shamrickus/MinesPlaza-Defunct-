@@ -12,7 +12,6 @@ function random($length){
 
 function generateCSRF($page, $html = true, $token = ""){
 	global $mysqli, $USERID;
-	$USERID = 1;
 	if($USERID){
 		$csrf = "";
 		if($token == ""){
@@ -40,7 +39,6 @@ function generateCSRF($page, $html = true, $token = ""){
 
 function validateCSRF($page, $token){
 	global $mysqli, $USERID;
-	$USERID = 1;
 	if($USERID){
 		if($stmt = $mysqli->prepare("SELECT * FROM user_csrf WHERE user_id = ? AND page = ?")){
 			$stmt->bind_param("is", $USERID, $page);
