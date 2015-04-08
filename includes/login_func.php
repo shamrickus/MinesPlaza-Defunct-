@@ -89,7 +89,7 @@ function validateEmail($email){
         $row = $result->fetch_assoc();
         if (count($row)) return "Email already exists||";
     }
-    else return "Cannot connect to DB";
+    else return "Cannot connect to DB||";
   return '';
 }
 
@@ -105,7 +105,7 @@ function validateUsername($user){
         $row = $result->fetch_assoc();
         if (count($row)) return "Username already exists||";
     }
-    else return "Cannot connect to DB";
+    else return "Cannot connect to DB||";
     return '';
 }
 
