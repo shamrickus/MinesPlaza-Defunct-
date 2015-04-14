@@ -13,6 +13,7 @@
     <div data-role="content">
         <input type="button" id ="button" value="Browse" onclick="location.href='browse.php';"/>
         <input type="button" id ="button" value="Sell" onclick="location.href='sell.php';"/>
+        <br>
         <input type="button" id ="button" value="Reviews" onclick="location.href='reviews.php';"/>
         <input type="button" id ="button" value="Account" onclick="location.href='accounts.php';"/>	
     </div>
@@ -25,15 +26,15 @@
 
 <style> 
 #button {
-	height: 320px;
-	width: 782px; 
+	height: 25%;
+	width: 48%; 
 	background-color: #5C5C2E;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 6px;
 	color: #000;
 	font-family: 'Times New Roman';
-	font-size: 100px;
+	font-size: 70px;
 	vertical-align: text-bottom;
 
 }
