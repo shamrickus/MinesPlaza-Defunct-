@@ -1,8 +1,20 @@
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `user_session`;
+DROP TABLE IF EXISTS `posts`;
+DROP TABLE IF EXISTS `tags`;
+DROP TABLE IF EXISTS `replies`;
+DROP TABLE IF EXISTS `post_tags`;
+DROP TABLE IF EXISTS `images`;
+DROP TABLE IF EXISTS `user_detail`;
+DROP TABLE IF EXISTS `user_csrf`;
+
+
 CREATE TABLE `users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(30) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `email` VARCHAR(32) NOT NULL,
+  `flagged` INT,
   PRIMARY KEY  (`id`)
 );
 
@@ -21,6 +33,7 @@ CREATE TABLE `posts` (
   `post_content` TEXT,
   `post_time` INT,
   `post_update` INT,
+  `flagged` INT,
   PRIMARY KEY  (`id`)
 );
 
@@ -29,6 +42,7 @@ CREATE TABLE `tags` (
   `tag_name` VARCHAR(32),
   `creator_id` INT,
   `tag_time` INT,
+  `flagged` INT,
   PRIMARY KEY  (`id`)
 );
 
@@ -39,6 +53,7 @@ CREATE TABLE `replies` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `reply_content` TEXT,
   `users_id` INT,
+  `flagged` INT,
   PRIMARY KEY  (`id`)
 );
 
@@ -54,6 +69,7 @@ CREATE TABLE `images` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `posts_id` INT,
   `image_name` TINYTEXT,
+  `flagged` INT,
   PRIMARY KEY  (`id`)
 );
 
