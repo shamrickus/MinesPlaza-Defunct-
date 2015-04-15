@@ -46,7 +46,7 @@ require 'header.php';
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12 controls">
-                        <button id="btn-signup" type="button submit" class="btn btn-info" onclick="disableAll()"><i class="icon-hand-right"></i> Sign Up</button>
+                        <button id="btn-signup" type="button submit" class="btn btn-info"><i class="icon-hand-right"></i> Sign Up</button>
                     </div>
                 </div>
                 <div class="form-group">

@@ -33,7 +33,7 @@ require 'header.php';
                 </div>
                 <div style="margin-top:25px" class="form-group">
                     <div class="col-sm-12 controls">
-                        <button id="btn-signup" type="button submit" onclick="disableAll()" class="btn btn-info"><i class="icon-hand-right"></i> Login</button>
+                        <button id="btn-signup" type="button submit" class="btn btn-info"><i class="icon-hand-right"></i> Login</button>
                     </div>
                 </div>
                 <div class="form-group">

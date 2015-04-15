@@ -1,20 +1,14 @@
 <html>
     <head>
         <title>Account Settings</title>
+        <?php 
+            include 'header.php';
+            loggedIn(0);  
+            print_r($USERID);          
+         ?>    
     </head>
 
     <body>
-        <?php 
-<<<<<<< HEAD
-           include 'header.php';
-	   echo loggedIn(0);
-	?>	
-
-=======
-            include 'header.php';
-            loggedIn(0);            
-         ?>    
->>>>>>> 39f6c8cc245992e548a5d540ba327c0353daf289
 
          <div class="container">
   <div class="row">
@@ -56,7 +50,7 @@
 		
 			<form action="update_account_settings.php" method = "POST">
 			<br>
-			First name:&emsp;&emsp;&nbsp;&nbsp;&nbsp; <input type="text" name="firstname" value="Marvin">
+			First name:&emsp;&emsp;&nbsp;&nbsp;&nbsp; <input type="text" name="firstname" value="<?php echo $FIRSTNAME; ?>">
 			<br><br>
 			Last name: &emsp;&emsp;&nbsp;&nbsp; <input type="text" name="lastname" value="Miner">
 			<br><br>
