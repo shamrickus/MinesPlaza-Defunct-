@@ -47,7 +47,7 @@
           <div class="tab-pane" id="e">
             <h3>Account Settings</h3> 
 		
-			<form action="update_account_settings.php" method = "POST">
+			<form action="account_settings_push.php" method = "POST">
 			<br>
 			First name:&emsp;&emsp;&nbsp;&nbsp;&nbsp; <input type="text" name="firstname" value="<?php echo $FIRSTNAME; ?>">
 			<br><br>
@@ -59,6 +59,8 @@
 			<br><br>
 			Password&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type ="password" name="passwd" value = "asdf">
 			<br><br>
+      Phone&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type ="tel" name="phone" value = "<?php echo $PHONE; ?>">
+      <br><br>
 			  
 				<input type="radio" name="sex" value="male" checked>Male
 				<br>
