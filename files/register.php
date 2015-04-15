@@ -55,7 +55,7 @@ require 'header.php';
                             Have an account? 
                             <a href="login.php" onclick="disableAll()">
                                 Sign In Here
-                            </a>
+                            </a>+
                         </div>
                     </div>
                 </div> 

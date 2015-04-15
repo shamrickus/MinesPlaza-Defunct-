@@ -3,8 +3,7 @@
         <title>Account Settings</title>
         <?php 
             include 'header.php';
-            loggedIn(0);  
-            print_r($USERID);          
+            loggedIn(0);          
          ?>    
     </head>
 
@@ -52,11 +51,11 @@
 			<br>
 			First name:&emsp;&emsp;&nbsp;&nbsp;&nbsp; <input type="text" name="firstname" value="<?php echo $FIRSTNAME; ?>">
 			<br><br>
-			Last name: &emsp;&emsp;&nbsp;&nbsp; <input type="text" name="lastname" value="Miner">
+			Last name: &emsp;&emsp;&nbsp;&nbsp; <input type="text" name="lastname" value="<?php echo $LASTNAME; ?>">
 			<br><br>
-			E-Mail Address:&emsp;<input type="text" name="emailaddr" value="Marvner@mines.edu">
+			E-Mail Address:&emsp;<input type="text" name="emailaddr" value="<?php echo $EMAIL; ?>">
 			<br><br>  
-			Username:&emsp;&emsp;&emsp;&nbsp;<input type="text" name="username" value ="current">
+			Username:&emsp;&emsp;&emsp;&nbsp;<input type="text" name="username" value ="<?php echo $USERNAME; ?>">
 			<br><br>
 			Password&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type ="password" name="passwd" value = "asdf">
 			<br><br>
