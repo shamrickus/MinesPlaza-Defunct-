@@ -1,5 +1,7 @@
 <?php
 require 'header.php';
+if(loggedIn(0))
+    Header("Location: home.php?msg=Already Logged In");
 ?>
 
 <html lang="en">
