@@ -1,16 +1,21 @@
 <!--DOCTYPE HTML-->
 <html>
-<head>
-
-</head>
-<body>
-<?php
-	include 'header.php'
-?>
-<!-- if this joker's not an admin (don't have a database, so I don't know how to do that)
-
-
--->
-
+	<head>
+		<?php
+			include 'header.php'
+		?>
+	</head>
+	<body>
+		<?php
+			/*if(!$MOD){
+				$msg="ERROR: You're not an admin";
+				header('Location: home.php?msg='.$msg);
+			}*/
+		?>
+		<div class="panel panel-default" style="width:50%;margin:auto;">
+			<div class="panel-body">
+				
+			</div>
+		</div>
 </body>
 </html>
