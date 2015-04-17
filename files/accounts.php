@@ -3,7 +3,7 @@
         <title>Account Settings</title>
         <?php 
             include 'header.php';
-            loggedIn(0);          
+            loggedIn(0);   
          ?>    
     </head>
 
@@ -57,9 +57,9 @@
 			<br><br>  
 			Username:&emsp;&emsp;&emsp;&nbsp;<input type="text" name="username" value ="<?php echo $USERNAME; ?>">
 			<br><br>
-			Password&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type ="password" name="passwd" value = "asdf">
+			Password:&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type ="password" name="passwd" value = "asdf">
 			<br><br>
-      Phone&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type ="tel" name="phone" value = "<?php echo $PHONE; ?>">
+      Phone:&emsp;&emsp;&nbsp;&nbsp;<input type ="tel" name="phone" value = "<?php echo $PHONE; ?>">
       <br><br>
 			  
 				<input type="radio" name="sex" value="male" checked>Male

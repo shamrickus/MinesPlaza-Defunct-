@@ -1,6 +1,5 @@
 <?php
-include "../includes/variables.php";
-include "../includes/login_func.php";
+include "header.php";
 
 loggedIn(0);
 
