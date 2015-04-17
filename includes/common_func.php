@@ -11,8 +11,8 @@ function random($length){
 }
 
 function generateCSRF($page, $html = true, $token = ""){
-	global $mysqli, $USERID;
-	if($USERID){
+	global $mysqli;
+	if($GLOBALS['USERID']){
 		$csrf = "";
 		if($token == ""){
 			$csrf = sha1($token);
@@ -20,13 +20,13 @@ function generateCSRF($page, $html = true, $token = ""){
 		else $csrf = sha1(microtime());
 
 		$stmt = $mysqli->prepare('DELETE FROM user_csrf WHERE user_id = ? AND page = ?');
-		$stmt->bind_param("is", $USERID, $page);
+		$stmt->bind_param("is", $GLOBALS['USERID'], $page);
 		$stmt->execute();
 		$stmt->close();
 
 		if($stmt = $mysqli->prepare('INSERT INTO user_csrf (user_id, page, csrf, expire_time) VALUES (?, ?, ?, ?)')){
 			$time = time() + 3600;
-			$stmt->bind_param('issi', $USERID, $page, $csrf, $time);
+			$stmt->bind_param('issi', $GLOBALS['USERID'], $page, $csrf, $time);
 			$stmt->execute();
 			$stmt->close();
 			if($html){
@@ -38,10 +38,10 @@ function generateCSRF($page, $html = true, $token = ""){
 }
 
 function validateCSRF($page, $token){
-	global $mysqli, $USERID;
-	if($USERID){
+	global $mysqli;
+	if($GLOBALS['USERID']){
 		if($stmt = $mysqli->prepare("SELECT * FROM user_csrf WHERE user_id = ? AND page = ?")){
-			$stmt->bind_param("is", $USERID, $page);
+			$stmt->bind_param("is", $GLOBALS['USERID'], $page);
 			$stmt->execute();
 			$result = $stmt->get_result();
         	$row = $result->fetch_assoc();
@@ -50,7 +50,7 @@ function validateCSRF($page, $token){
         	else{
         		$stmt->close();
         		$stmts = $mysqli->prepare('DELETE FROM user_csrf WHERE user_id = ? AND page = ?');
-				$stmts->bind_param("is", $USERID, $page);
+				$stmts->bind_param("is", $GLOBALS['USERID'], $page);
 				$stmts->execute();
 				$stmts->close();
         		return '';

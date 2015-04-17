@@ -47,7 +47,7 @@
           <div class="tab-pane" id="e">
             <h3>Account Settings</h3> 
 		
-			<form action="account_settings_push.php" method = "POST">
+			<form action="accounts_post.php" method = "POST">
 			<br>
 			First name:&emsp;&emsp;&nbsp;&nbsp;&nbsp; <input type="text" name="firstname" value="<?php echo $FIRSTNAME; ?>">
 			<br><br>
@@ -67,8 +67,11 @@
 				<input type="radio" name="sex" value="female">Female
 				<br>
 				<input type="radio" name="sex" value="other">Other
-			 
 
+          <input style="display:none" type="text" name="csrf" value="<?php echo generateCSRF(pathinfo(__FILE__, PATHINFO_FILENAME), false); ?>">
+          <input style="display:none" type="text" name="page" value="<?php echo pathinfo(__FILE__, PATHINFO_FILENAME); ?>">
+			 
+          <br>
 			  	<input type="submit" value="Submit">
 			</form>           
           </div>
@@ -88,7 +91,7 @@
     color:#fff;
    }
 
-   body {background-color:#202010}
+   body {background-color:lightblue}
 
     .glyphicon {
     color: #fff;

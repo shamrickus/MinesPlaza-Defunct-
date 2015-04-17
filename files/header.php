@@ -50,7 +50,7 @@
         <?php
             if(loggedIn(-1)){
                 echo '
-                    <p class="navbar-text" style="cursor:default">'.$USERNAME.'</p>
+                    <p class="navbar-text" style="cursor:default">'.$GLOBALS['USERNAME'].'</p>
                     <li><a href="logout.php">Logout</a></li>
                 ';
             }
@@ -74,7 +74,10 @@ if(isset($_REQUEST['msg'])){
     $msg = $_REQUEST['msg'];
     $msg = str_replace("||", "<br>", $msg);
     echo '
-    <div class="alert alert-warning alert-dismissible" role="alert" style="width:80%;min-width:600px;margin:auto;text-align:center;border:1px solid #faebcc;-moz-box-shadow: 0 1px 3px -1px #1c1c1c;-webkit-box-shadow: 0 1px 3px -1px #1c1c1c;box-shadow: 0 1px 3px -1px #1c1c1c;" aria-label="Close" data-dismiss="alert">
+    <div id="alert" class="alert alert-warning alert-dismissible" role="alert" 
+    style="width:80%;min-width:600px;margin:auto;text-align:center;border:1px solid #faebcc;
+    -moz-box-shadow: 0 1px 3px -1px #1c1c1c;-webkit-box-shadow: 0 1px 3px -1px #1c1c1c;
+    box-shadow: 0 1px 3px -1px #1c1c1c;" aria-label="Close" onclick="jQuery(\'#alert\').fadeOut();">
             '.$msg.'
     </div>
     ';

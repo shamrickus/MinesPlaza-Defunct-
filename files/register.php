@@ -1,6 +1,6 @@
 <?php
 require 'header.php';
-if(loggedIn(0))
+if(loggedIn(-1))
     Header("Location: home.php?msg=Already Logged In");
 ?>
 

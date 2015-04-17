@@ -64,9 +64,9 @@ function logout($userid = 0){
     global $mysqli;
     if($userid == 0) $userid = $_COOKIE['SessionUser'];
     $result = $mysqli->query('DELETE FROM user_session WHERE user_id='.$userid);
-    setcookie('SessionUser', 0, 1);
-    setcookie('SessionId', 0, 1);
-    defineUser(0);
+    setcookie('SessionUser', 0, time() + 3600 * 3600);
+    setcookie('SessionId', "", time() + 3600 * 3600);
+    defineUser(-1);
     header('Location: login.php?msg=You have been logged out');
     exit();
 }
@@ -122,7 +122,7 @@ function validateCaptcha($cap){
 }
 //Pass userid for given uid, 0 for destroy, -1 for cookies
 function defineUser($uid = -1){
-    global $mysqli, $USERID, $USERNAME, $EMAIL, $FIRSTNAME, $LASTNAME, $PHONE, $DISABLED;
+    global $mysqli;
     if($uid || $uid == -1){
         if($uid == -1){
             if(!isset($_COOKIE['SessionUser'])) return;
@@ -133,27 +133,26 @@ function defineUser($uid = -1){
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
-        $USERID = $uid;
-        $USERNAME = $row['username'];
-        $EMAIL = $row['email'];
-        $FLAGGED = $row['flagged'];
-        $FIRSTNAME = $row['first_name'];
-        $LASTNAME = $row['last_name'];
-        $PHONE = $row['phone'];
-        $DISABLED = $row['disabled'];
-        $MOD = $row['moderator'];
+        $GLOBALS['USERID'] = $uid;
+        $GLOBALS['USERNAME'] = $row['username'];
+        $GLOBALS['EMAIL'] = $row['email'];
+        $GLOBALS['FLAGGED'] = $row['flagged'];
+        $GLOBALS['FIRSTNAME'] = $row['first_name'];
+        $GLOBALS['LASTNAME'] = $row['last_name'];
+        $GLOBALS['PHONE'] = $row['phone'];
+        $GLOBALS['DISABLED'] = $row['disabled'];
+        $GLOBALS['MOD'] = $row['moderator'];
         $stmt->close();
     }
     else{
-        $USERID = 0;
-        $USERNAME = "";
-        $EMAIL = "";
-        $FLAGGED = 0;
-        $FIRSTNAME = "";
-        $LASTNAME = "";
-        $PHONE = 0;
-        $DISABLED = false;
-        $MOD = false;
+        $GLOBALS['USERID'] = 0;
+        $GLOBALS['USERNAME'] = "";
+        $GLOBALS['EMAIL'] = "";
+        $GLOBALS['FIRSTNAME'] = "";
+        $GLOBALS['LASTNAME'] = "";
+        $GLOBALS['PHONE'] = 0;
+        $GLOBALS['DISABLED'] = false;
+        $GLOBALS['MOD'] = false;
     }
 }
 

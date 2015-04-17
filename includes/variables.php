@@ -1,20 +1,20 @@
 <?php
 define('_DB_HOST', 'localhost');
-define('_DB_PASS', '1111111111111');
+define('_DB_PASS', 'foobar');
 define('_DB_USER', 'root');
 define('_DB_PORT', 3306);
 define('_DB_TABLE', 'MinesPlaza');
 
 if(!isset($mysqli)) $mysqli = createDBObject();
 if(!isset($USERID)){
-	$USERID = 0;
-    $USERNAME = "";
-    $EMAIL = "";
-    $FIRSTNAME = "";
-    $LASTNAME = "";
-    $PHONE = 0;
-    $DISABLED = false;
-    $MOD = false;
+	$GLOBALS['USERID'] = 0;
+    $GLOBALS['USERNAME'] = "";
+    $GLOBALS['EMAIL'] = "";
+    $GLOBALS['FIRSTNAME'] = "";
+    $GLOBALS['LASTNAME'] = "";
+    $GLOBALS['PHONE'] = 0;
+    $GLOBALS['DISABLED'] = false;
+    $GLOBALS['MOD'] = false;
 }
 
 function createDBObject(){

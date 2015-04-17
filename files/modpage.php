@@ -7,12 +7,12 @@
 	</head>
 	<body>
 		<?php
-		/*
-			if(!$MOD){
+			print_r("|".$MOD."|");
+			/*if(!$MOD){
 				$msg="ERROR: You're not an admin";
 				header('Location: home.php?msg='.$msg);
-			}
-			*/
+			}*/
+			
 		?>
 		<div class="panel panel-default" style="width:50%;margin:auto;">
 			<div class="panel-body">
