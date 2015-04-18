@@ -8,20 +8,27 @@ $csrf = $_REQUEST['csrf'];
 $username = $_REQUEST['username'];
 $email = $_REQUEST['emailaddr'];
 $pass = $_REQUEST['passwd'];
-$pass_re = $_REQUEST['password_re'];//The password recheck
-
+$pass_re = $_REQUEST['passwd_re'];//The password recheck
+$phone = $_REQUEST['phone'];
+$first = $_REQUEST['first_name'];
+$last = $_REQUEST['last_name'];
 $msg = '';
 $msg .= validateEmail($email);
 $msg .= validateUsername($username);
 $msg .= validatePassword($pass, $pass_re);
+$msg .= validateName($first);
+$msg .= validateName($last);
+$msg .= validatePhone($phone);
 //
+print_r($msg);
 $page = $_REQUEST['page'];
 $msg = validateCSRF($page, $csrf);
 if($msg != ''){
     header('Location: '.$page.'.php?msg='.$msg);
     exit();
 }
-
+print_r($msg);
+/*
 if($stmt=$mysqli->prepare ("UPDATE users SET email = ?, username = ?, password = ? WHERE id = ".$USERID)){
 	$stmt->bind_param("sss", $_POST["emailaddr"], $_POST["username"], password_hash($_POST["passwd"], PASSWORD_DEFAULT));
 	$stmt->execute();
@@ -40,5 +47,5 @@ if($stmt=$mysqli->prepare ("UPDATE users SET email = ?, username = ?, password =
 
 }
 else
-	header("Location: accounts.php?msg=Update Failed");
+	header("Location: accounts.php?msg=Update Failed");*/
  ?>

@@ -59,7 +59,7 @@
 			<br><br>
 			Password:&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type ="password" name="passwd" placeholder = "password">
 			<br><br>
-      Password:&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type="password" name="passwd_re" placeholder = "retype password">
+      password:&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type="password" name="passwd_re" placeholder = "retype password">
       <br><br>
       Phone:&emsp;&emsp;&nbsp;&nbsp;<input type ="tel" name="phone" value = "<?php echo $PHONE; ?>">
       <br><br>

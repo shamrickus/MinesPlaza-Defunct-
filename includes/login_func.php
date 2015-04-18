@@ -116,8 +116,8 @@ function validatePhone($phone){
 }
 
 function validateName($name){
-    if($name <= 0) return "Name is too short||";
-    else if($name > 63) return "Name is too long||";
+    if(strlen($name) <= 0) return "Name is too short||";
+    else if(strlen($name) > 63) return "Name is too long||";
     else if(!preg_match('/^[\pL0-9]+$/', $name)) return "Name must be alpha numeric||";
     else return '';
 }
