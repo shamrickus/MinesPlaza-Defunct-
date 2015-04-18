@@ -78,11 +78,11 @@ function validatePassword($pass, $pass_re){
     return '';
 }
 
-function validateEmail($email, $new){
+function validateEmail($email, $new=true){
     global $mysqli;
     if(strlen($email) > 32) return "Email is too long||";
     if(!preg_match('/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/', $email)) return "Must be a valid email||";
-    if($stmt = $mysqli->prepare('SELECT * FROM users WHERE email = ?') && $new){
+    if(($stmt = $mysqli->prepare('SELECT * FROM users WHERE email = ?')) && $new){
         $stmt->bind_param('s', $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -93,12 +93,12 @@ function validateEmail($email, $new){
   return '';
 }
 
-function validateUsername($user, $new){
+function validateUsername($user, $new=true){
     global $mysqli;
     if(strlen($user) < 3) return "Username must be at least three characters||";
     if(strlen($user) > 30) return "Username is too long||";
     if(!preg_match('/^[\pL0-9]+$/', $user)) return "Username must be alpha numeric||";
-    if($stmt = $mysqli->prepare('SELECT * FROM users WHERE username = ?') && $new){
+    if(($stmt = $mysqli->prepare('SELECT * FROM users WHERE username = ?')) && $new){
         $stmt->bind_param('s', $user);
         $stmt->execute();
         $result = $stmt->get_result();

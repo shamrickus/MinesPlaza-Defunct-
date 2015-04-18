@@ -5,6 +5,7 @@
             include 'header.php';
             loggedIn(0);   
          ?>    
+         <script src = "js/accounts.js" ></script>
     </head>
 
     <body>
@@ -57,9 +58,13 @@
 			<br><br>  
 			Username:&emsp;&emsp;&emsp;&nbsp;<input type="text" name="username" value ="<?php echo $USERNAME; ?>">
 			<br><br>
-			Password:&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type ="password" name="passwd" placeholder = "password">
-			<br><br>
-      password:&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type="password" name="passwd_re" placeholder = "retype password">
+      Change Password?&emsp;<input type="checkbox" name="change_pass" id="pass">
+      <div id = "pass_check">
+        <br><br>
+  			Password:&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type ="password" name="passwd" placeholder = "password">
+  			<br><br>
+        Password:&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type="password" name="passwd_re" placeholder = "retype password">
+      </div>
       <br><br>
       Phone:&emsp;&emsp;&nbsp;&nbsp;<input type ="tel" name="phone" value = "<?php echo $PHONE; ?>">
       <br><br>

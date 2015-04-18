@@ -13,12 +13,12 @@ $phone = $_REQUEST['phone'];
 $first = $_REQUEST['first_name'];
 $last = $_REQUEST['last_name'];
 $msg = '';
-$msg .= validateEmail($email);
-$msg .= validateUsername($username);
-$msg .= validatePassword($pass, $pass_re);
-$msg .= validateName($first);
-$msg .= validateName($last);
-$msg .= validatePhone($phone);
+$msg .= validateEmail($email);print_r($msg);
+$msg .= validateUsername($username);print_r($msg);
+$msg .= validatePassword($pass, $pass_re);print_r($msg);
+$msg .= validateName($first);print_r($msg);
+$msg .= validateName($last);print_r($msg);
+$msg .= validatePhone($phone);print_r($msg);
 //
 print_r($msg);
 $page = $_REQUEST['page'];
@@ -27,8 +27,7 @@ if($msg != ''){
     header('Location: '.$page.'.php?msg='.$msg);
     exit();
 }
-print_r($msg);
-/*
+
 if($stmt=$mysqli->prepare ("UPDATE users SET email = ?, username = ?, password = ? WHERE id = ".$USERID)){
 	$stmt->bind_param("sss", $_POST["emailaddr"], $_POST["username"], password_hash($_POST["passwd"], PASSWORD_DEFAULT));
 	$stmt->execute();
@@ -47,5 +46,5 @@ if($stmt=$mysqli->prepare ("UPDATE users SET email = ?, username = ?, password =
 
 }
 else
-	header("Location: accounts.php?msg=Update Failed");*/
+	header("Location: accounts.php?msg=Update Failed");
  ?>
