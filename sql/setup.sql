@@ -14,6 +14,7 @@ CREATE TABLE `users` (
   `username` VARCHAR(30) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `email` VARCHAR(32) NOT NULL,
+  `reset` VARCHAR(255),
   `flagged` INT,
   PRIMARY KEY  (`id`)
 );
