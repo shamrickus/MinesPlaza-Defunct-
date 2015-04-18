@@ -4,6 +4,17 @@ include "header.php";
 loggedIn(0);
 
 $csrf = $_REQUEST['csrf'];
+//
+$username = $_REQUEST['username'];
+$email = $_REQUEST['emailaddr'];
+$pass = $_REQUEST['passwd'];
+$pass_re = $_REQUEST['password_re'];//The password recheck
+
+$msg = '';
+$msg .= validateEmail($email);
+$msg .= validateUsername($username);
+$msg .= validatePassword($pass, $pass_re);
+//
 $page = $_REQUEST['page'];
 $msg = validateCSRF($page, $csrf);
 if($msg != ''){
@@ -12,7 +23,7 @@ if($msg != ''){
 }
 
 if($stmt=$mysqli->prepare ("UPDATE users SET email = ?, username = ?, password = ? WHERE id = ".$USERID)){
-	$stmt->bind_param("sss", $_POST["emailaddr"], $_POST["username"], $_POST["passwd"] );
+	$stmt->bind_param("sss", $_POST["emailaddr"], $_POST["username"], password_hash($_POST["passwd"], PASSWORD_DEFAULT));
 	$stmt->execute();
 	$stmt->close();
 
