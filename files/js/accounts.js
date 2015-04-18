@@ -1,12 +1,9 @@
 $(document).ready(function() {
 jQuery("#pass_check").hide();
  jQuery("#pass").on("click", function(){ 
- 	if(jQuery(this).prop("disabled")){
- 		jQuery(this).prop("disabled", false);
- 	}
-    if(jQuery(this).prop("checked",true)){
+    if(jQuery(this).prop("checked")==true){
       jQuery("#pass_check").show();
-    }else if (jQuery(this).prop("checked",false)){
+    }else if (jQuery(this).prop("checked")==false){
       jQuery("#pass_check").hide();
   	}
   });
