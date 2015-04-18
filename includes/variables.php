@@ -6,7 +6,7 @@ define('_DB_PORT', 3306);
 define('_DB_TABLE', 'MinesPlaza');
 
 if(!isset($mysqli)) $mysqli = createDBObject();
-if(!isset($USERID)){
+if(!isset($GLOBALS['USERID'])){
 	$GLOBALS['USERID'] = 0;
     $GLOBALS['USERNAME'] = "";
     $GLOBALS['EMAIL'] = "";
