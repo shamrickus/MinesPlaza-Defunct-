@@ -109,6 +109,19 @@ function validateUsername($user){
     return '';
 }
 
+function validatePhone($phone){
+    if(strlen($phone) != 10) return "Phone Number is not right length||";
+    else if(!preg_match('/^[0-9]+/', $phone)) return "Phone Numbers should only contain 0-9||";
+    else return '';
+}
+
+function validateName($name){
+    if($name <= 0) return "Name is too short||";
+    else if($name > 63) return "Name is too long||";
+    else if(!preg_match('/^[\pL0-9]+$/', $name)) return "Name must be alpha numeric||";
+    else return '';
+}
+
 function validateCaptcha($cap){
     $ch = curl_init('https://www.google.com/recaptcha/api/siteverify?secret=6LfEZgITAAAAAB0LQG4S46ghPpLi5dThqB5ZOX5Y&response='.$cap.'&remoteip='.$_SERVER['REMOTE_ADDR']);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
